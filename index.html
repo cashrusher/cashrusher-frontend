@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript" src="scripts/dist/My97DatePicker/WdatePicker.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="content">
+            <div class="tab" id="js-tab">
+                <ul>
+                    <li class="current"><a href="javascript:;">资产情况</a></li>
+                    <li><a href="javascript:;">交易中心</a></li>
+                    <li><a href="javascript:;">交易日志</a></li>
+                </ul>
+                <a href="javascript:;" class="marketSetUp" id="marketSetUp">交易配置设置</a>
+            </div>
+            <div class="tab-content" id="js-tabContent">
+                <div class="tabItem current">
+                    <div class="total">
+                        <label>总资产（折合): </label>
+                        <span>CNY</span>
+                        <span id="total_cny">--</span>
+                        <span>或：USD</span><span class="total_usd">--</span>
+                        <label>CNY/USD</label>
+                        <span id="total_ratio">--</span>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2">交易市场</th>
+                                <th colspan="3">资产</th>
+                                <th>资产价值</th>
+                            </tr>
+                            <tr>
+                                <th>类型</th>
+                                <th>可用数量</th>
+                                <th>冻结数量</th>
+                                <th>人民币(CNY)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rusherInfoBox">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tabItem">
+                    <div class="tradeCenter clear">
+                        <div class="diffCenter">
+                            <h3 class="title">差价套利行情</h3>
+                            <div class="tradeOperation">
+                                <div class="opform">
+                                    <label>汇率输入：</label>
+                                    <input type="text" name="exchangeRate" id="exchangeRate" data-error="请输入正确格式的汇率">
+                                </div>
+                                <div class="opform">
+                                    <a href="javascript:;" class="btn" id="changeRate">确定</a>
+                                </div>
+                                <a href="javascript:;" class="btn js-trade" data-auto="true">全自动</a>
+                                <a href="javascript:;" class="btn js-trade" data-auto="false">半自动</a>
+                            </div>
+                            <table class="nobor">
+                                <thead>
+                                    <tr>
+                                        <th width="18%">&nbsp;</th>
+                                        <th width="18%">交易平台</th>
+                                        <th width="16%">买一</th>
+                                        <th width="16%">卖一</th>
+                                        <th width="16%">最高价</th>
+                                        <th width="16%">最低价</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tradeInfoBox">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabItem">
+                    <div class="searchBox clear">
+                        <div class="searchItem">
+                            <label>开始时间：</label>
+                            <input type="text" name="begin" placeholder="yyyy-MM-dd" id="begin" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'end\')}'})">
+                        </div>
+                        <div class="searchItem">
+                            <label>结束时间：</label>
+                            <input type="text" name="end" id="end" placeholder="yyyy-MM-dd" onclick="WdatePicker({minDate:'#F{$dp.$D(\'begin\')}'})">
+                        </div>
+                        <a href="javascript:;" class="btn small">查询</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>交易编号</th>
+                                <th>交易时间</th>
+                                <th>买入平台</th>
+                                <th>买入价格</th>
+                                <th>买入数量</th>
+                                <th>手续费</th>
+                                <th>卖出平台</th>
+                                <th>卖出价格</th>
+                                <th>卖出数量</th>
+                                <th>手续费</th>
+                                <th>交易净利润</th>
+                                <th>累计净利润</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tradeRecords">
+                            
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="musicTips" id="musicTips">
+        <a class="m-close" id="musicTips-close"></a>
+        <div class="m-cent">
+            <div class="icon-music icon-nomusic" id="js-media">
+                <audio id="bgMusic" loop="loop" preload="auto" style="display:none; height: 0" >
+                    <source src="/audio/song.mp3" type="audio/mpeg">
+                </audio> 
+            </div>
+            <div class="m-msg">有新的交易,是否交易？</div>
+        </div><!-- 
+        <div class="btns">
+            <a class="btn grey" href="javascript:;">取消</a>
+            <a class="btn" href="javascript:;">交易</a>
+        </div> -->
+    </div>
+    <div class="mask" id="mask"></div>
+    <div class="dialog" id="dialog">
+        <div class="dialog-title">
+            市场配置设置
+            <i class="close js-close"></i>
+        </div>
+        <div class="dialog-content">
+            <div class="tips">灰色输入框不需填写</div>
+            <div class="content-box">
+                <div class="dialog-box">
+                    <span class="lenged">API设置</span>
+                    <div class="db">
+                        <label>Access Key</label>
+                        <input type="password" name="accessKey" data-error="请输入Access Key" class="js-accesskey">
+                    </div>
+                    <div class="db">
+                        <label>Secret Key</label>
+                        <input type="password" name="secretKey" data-error="请输入Secret Key" class="js-secretkey">
+                    </div>
+                    <div class="db">
+                        <label>交易平台</label>
+                        <select name="platform" class="js-platform">
+                            <option>okcoin</option>
+                            <option>云币网</option>
+                        </select>
+                    </div>
+                    <div class="btnGroup">
+                        <a href="javascript:;" class="btn" id="linktest">测试连接</a>
+                    </div>
+                </div>
+            </div>
+            <div class="content-box">
+                <div class="dialog-box clear">
+                    <span class="lenged">市场数据刷新频率</span>
+                    <div class="box-half">
+                        <label>市场行情</label>
+                        <input type="text" name="accessKey" class="js-rate" data-error="请输入刷新频率(正整数)">秒/次
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog-foot">
+            <a href="javascript:;" class="btn" id="save">保存</a>
+        </div>
+    </div>
+    <script type="text/html" class="hide" id="rusherInfo">
+        <% 
+            if(data){ 
+            var keys = data.keys;
+            var detail = data.detail;
+            for(var i=0,len=keys.length;i<len;i++){
+                var key = keys[i];
+                var item = detail[key];
+                if(item && item.length){
+                    var rowspan = item.length + 1;
+                    var available = 0,locked = 0,cny = 0,usd = 0;
+                    for(var j=0;j<item.length;j++){
+                        var jItem = item[j];
+                        available += jItem.available;
+                        locked += jItem.locked;
+                        cny += jItem.cny;
+                        usd += jItem.usd;
+        %>
+        <tr>
+            <% if(j == 0){ %>
+            <td rowspan="<%= rowspan %>"><%= key %></td>
+            <% } %>
+            <td><%= jItem.currency %></td>
+            <td><%= jItem.available %></td>
+            <td><%= jItem.locked %></td>
+            <td><%= jItem.cny %></td>
+        </tr>
+        <% } %>
+        <tr>
+            <td>小计</td>
+            <td><%= Utils.ToFixed(6,available) %></td>
+            <td><%= Utils.ToFixed(6,locked) %></td>
+            <td><%= Utils.ToFixed(6,cny) %></td>
+        </tr>
+        <% } } } %>
+    </script>
+    <script type="text/html" class="hide" id="tradeInfo">
+        <% 
+            if(data){ 
+            var mainland = data.mainland;
+            var abroad = data.abroad;
+        %>
+        <tr>
+            <td colspan="6" class="nobor-b">
+                <table>
+                    <% 
+                        var tickers = mainland.tickers;
+                        for(var i=0;i<tickers.length;i++){
+                            var item = tickers[i];
+                            var sellClass = "",buyClass="";
+                            if(mainland.calculate.maxsell == item.sell){
+                                sellClass = "blue"
+                            }
+                            if(mainland.calculate.minbuy == item.buy){
+                                buyClass = "red";
+                            }
+                    %>
+                    <tr>
+                        <% if(i==0){ %>
+                        <td rowspan="<%= tickers.length %>" width="18%">国内</td>
+                        <% } %>
+                        <td width="18%"><%= item.platform %></td>
+                        <td width="16%" class="<%= buyClass %>"><%= item.buy %></td>
+                        <td width="16%" class="<%= sellClass %>"><%= item.sell %></td>
+                        <% if(i==0){ %>
+                        <td rowspan="<%= tickers.length-1 %>" width="16%"><%= mainland.calculate.maxsell %></td>
+                        <td rowspan="<%= tickers.length-1 %>" class="last" width="16%"><%= mainland.calculate.minbuy %></td>
+                        <% } else if(i == tickers.length - 1){ %>
+                            <td class="sred">1.78%</td>
+                            <td class="last">
+                                <input type="text" class="threshold" data-error="请输入国内最大买一／卖一" placeholder="D9阈值" name="maxbuy_minsell" id="maxbuy_minsell">
+                            </td>
+                        <% } %>
+                    </tr>
+                    <% } %>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="nobor-b">
+                <table class="nobor-tb">
+                    <% 
+                        var abroadTickers = abroad.tickers;
+                        for(var j=0;j<abroadTickers.length;j++){
+                            var item = abroadTickers[j];
+                            var calculate = abroad.calculate[j];
+                    %>
+                    <tr>
+                        <% if(j==0){ %>
+                        <td rowspan="<%= abroadTickers.length * 2 %>" width="18%">国际</td>
+                        <% } %>
+                        <td rowspan="2" width="18%"><%= item.platform %></td>
+                        <td rowspan="2" width="16%"><%= item.buy %></td>
+                        <td rowspan="2" width="16%"><%= item.sell %></td>
+                        <td width="16%" class="sred"><%= calculate.sellratio %></td>
+                        <td width="16%" class="sred last"><%= calculate.buyratio %></td>
+                    </tr>
+                    <tr>
+                        <td width="16%">
+                            <input type="text" data-error="请输入国内最大买一／<%= item.platform %>卖一" placeholder="国内最大买一/<%= item.platform %>卖一阈值" name="maxbuy_<%= item.platform %>sell" id="maxbuy_<%= item.platform %>sell" class="threshold">
+                        </td>
+                        <td width="16%" class="last">
+                            <input type="text" data-error="请输入国内最大卖一/<%= item.platform %>买一阈值" placeholder="国内最大卖一/<%= item.platform %>买一阈值" name="maxsell_<%= item.platform %>buy" id="maxsell_<%= item.platform %>buy" class="threshold">
+                        </td>
+                    </tr>
+                    <% } %>
+                </table>
+            </td>
+        </tr>
+        <% } %>
+    </script>
+    <script type="text/html" class="hide" id="tradeRcordsInfo">
+        <% 
+            if(data){
+            data.forEach(function(item){
+        %>
+        <tr>
+            <td>OKCoin</td>
+            <td>¥27,784.39</td>
+            <td>$4,123.20</td>
+            <td>$4,137.66</td>
+            <td>$4,137.66</td>
+            <td>$4,137.66</td>
+            <td>OKCoin</td>
+            <td>¥27,784.39</td>
+            <td>$4,123.20</td>
+            <td>$4,137.66</td>
+            <td>$4,137.66</td>
+            <td>$4,137.66</td>
+        </tr>
+        <% }); %>
+    </script>
+    <script type="text/javascript" src="scripts/dist/jquery.js"></script>
+    
+    <script type="text/javascript" src="scripts/dist/utils.js"></script>
+    <script type="text/javascript" src="scripts/dist/index.js"></script>
+</body>
+
+</html>
