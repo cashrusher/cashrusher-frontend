@@ -1,0 +1,811 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+
+
+/* remember to define focus styles! */
+
+:focus {
+    outline: 0;
+}
+
+
+
+/* remember to highlight inserts somehow! */
+
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+
+
+/* tables still need 'cellspacing="0"' in the markup */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+}
+
+:link,
+:visited {
+    color: #444;
+    text-decoration: none
+}
+
+.clear {
+    zomm: 1;
+}
+
+.clear:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.body {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292e;
+    background-color: #fff;
+}
+
+.m10 {
+    margin-left: 10px;
+}
+
+.m20 {
+    margin-left: 20px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.red {
+    background-color: #db3036;
+    color: #fff;
+}
+
+.sred {
+    color: #db3036;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.blue {
+    background-color: #329ddc;
+    color: #fff;
+}
+
+.btn {
+    display: inline-block;
+    width: 120px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    color: #fff;
+    background: #068814;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.wrap {
+    width: 100%;
+    font-size: 12px;
+}
+
+.wrap .content {
+    width: 100%;
+}
+
+.content .tab {
+    padding: 0 50px;
+    height: 40px;
+    border-bottom: 1px solid #fff;
+    background-color: #f5f6f6;
+    position: relative;
+}
+
+.marketSetUp {
+    position: absolute;
+    right: 50px;
+    top: 18px;
+    color: #068814;
+}
+
+.tab ul li {
+    list-style: none;
+    float: left;
+    height: 40px;
+}
+
+.tab ul li a {
+    display: block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    content: #444;
+}
+
+.tab ul li.current a {
+    background-color: #fff;
+}
+
+.tab-content {
+    width: 100%;
+    padding-top: 15px;
+}
+
+.tab-content .tabItem {
+    display: none;
+    padding: 0 10px;
+}
+
+.tab-content .current {
+    display: block;
+}
+
+.wrap table {
+    width: 100%;
+    border-top: 1px solid #d9d9d9;
+    border-left: 1px solid #d9d9d9;
+}
+
+.wrap .nobor {
+    width: 100%;
+    border: none;
+}
+
+.wrap .nobor-rb {
+    width: 100%;
+    border-right: none;
+    border-bottom: none;
+    border-top: none;
+}
+
+.wrap table td,
+.wrap table th {
+    height: 36px;
+    border-bottom: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.wrap table th {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.wrap table thead td {
+    font-weight: 700;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.wrap table.nobor thead th {
+    border-left: 1px solid #d9d9d9;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: none;
+}
+
+.wrap table.nobor-tb {
+    border-bottom: none;
+    border-top: none;
+}
+
+.wrap table tr td.nobor-b {
+    border-bottom: none;
+}
+
+.wrap table tr td.last {
+    border-right: none;
+}
+
+.wrap table tbody tr td input {
+    padding: 10px 0;
+    text-indent: 5px;
+    width: 100%;
+    border: none;
+}
+
+.total {
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.total label {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.total span {
+    display: inline-block;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.tradeCenter {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.tradeCenter .tradeOperation {
+    padding: 20px 0;
+}
+
+.tradeOperation .opform {
+    width: 180px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+}
+
+.tradeOperation .opform label {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.tradeOperation .opform input {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 6px;
+    width: 50px;
+    border-radius: 5px;
+}
+
+.tradeOperation a {
+    width: 80px;
+    margin-right: 30px;
+}
+
+.halfScreen {
+    float: left;
+    width: 590px;
+}
+
+.tradeCenter h3 {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #444;
+}
+
+.crossCenter {
+    width: 100%;
+}
+
+.searchBox {
+    border-bottom: 1px solid #d9d9d9;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.searchBox .searchItem {
+    float: left;
+    width: 260px;
+    height: 40px;
+}
+
+.searchBox div label {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    width: 80px;
+    text-align: right;
+    padding-left: 10px;
+}
+
+.searchBox div input {
+    width: 150px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.searchBox a.btn {
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.count {
+    text-align: left!important;
+}
+
+.count span {
+    padding: 0 5px;
+}
+
+.count input {
+    width: 40px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+
+.dialog {
+    position: absolute;
+    display: none;
+    width: 500px;
+    height: 400px;
+    left: 50%;
+    margin-left: -250px;
+    top: 50%;
+    margin-top: -200px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    z-index: 99;
+}
+
+.dialog-title {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 20px;
+    background: #f5f6f6;
+    font-size: 14px;
+}
+
+.dialog-title i.close {
+    float: right;
+    display: block;
+    width: 20px;
+    margin-top: 5px;
+    margin-right: 5px;
+    height: 20px;
+    background: url(../images/icon_close.png) no-repeat;
+    background-size: 20px 20px;
+    cursor: pointer;
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+
+.dialog-title i.close:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+}
+
+
+.dialog-content {
+    padding: 10px 15px;
+}
+
+.dialog .tips {
+    text-align: right;
+    color: red;
+}
+
+.dialog-content .dialog-box {
+    position: relative;
+    padding: 10px;
+    width: 448px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.dialog-content .half {
+    width: 208px;
+    float: left
+}
+
+.dialog-box span.lenged {
+    position: absolute;
+    display: block;
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    background: #fff;
+    text-align: center;
+    color: #444;
+    top: -15px;
+    left: 15px;
+}
+
+.dialog-box div {
+    height: 40px;
+    line-height: 40px;
+}
+
+.dialog-box div label {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    width: 100px;
+    text-align: center;
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+.dialog-box div input {
+    width: 250px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.dialog-box div select {
+    width: 260px;
+    border: 1px solid #ddd;
+    height: 30px;
+    border-radius: 3px;
+}
+
+.dialog-box div input.disabled {
+    cursor: not-allowed;
+    background-color: #f5f6f6;
+}
+
+.dialog-box div.box-half {
+    width: 50%;
+    float: left;
+}
+
+.dialog-box div.btnGroup {
+    text-align: center;
+}
+
+.half div label {
+    width: 80px;
+}
+
+.half div input,
+.dialog-box div.box-half input {
+    width: 50px;
+    margin-right: 5px;
+}
+
+.half div input[type="radio"],
+.dialog-box div.box-half input[type="radio"] {
+    width: 20px;
+}
+
+
+.dialog-foot {
+    height: 40px;
+    text-align: center;
+}
+
+.loading {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff url("../images/loading.gif") scroll 0 0 no-repeat;
+    background-position: 50% 50%;
+    border: 1px solid #d9d9d9;
+    z-index: 9;
+}
+
+.mask {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.messbox {
+    position: absolute;
+    left: -100px;
+    top: -100px;
+    z-index: 999;
+    border: 1px solid #db3036;
+    font-size: 12px;
+    background-color: #FFF0E5;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+
+.arrow-outer {
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top-color: #db3036;
+    position: absolute;
+    bottom: -16px;
+    left: 10px
+}
+
+.arrow-inner {
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-top-color: #FFF0E5;
+    margin-top: -8px;
+    margin-left: -7px;
+}
+
+.error{
+	color:#db3036;
+	border: 1px solid #db3036 !important;
+}
+
+.alertOuter{
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.alertOuter .bg{
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.alertBox{
+    position: absolute;
+    z-index: 999;
+    width: 240px;
+    height: 100px;
+    padding: 10px;
+    left: 50%;
+    top: 50%;
+    margin-left: -130px;
+    margin-top: -60px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.alertBox h4{
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.alertBox div{
+    text-align: center;
+    padding: 10px 0;
+}
+
+.alertBox div.close-alert{
+    border-top: 1px solid #ddd;
+}
+
+.alertBox div.close-alert a.btn{
+    width: 80px;
+}
+
+.musicTips{
+    padding: 10px;
+    position: fixed;
+    opacity: 0;
+    z-index: 9999;
+    right: 10px;
+    bottom: -100px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    height: 80px;
+    box-shadow:-2px 0 2px #ddd, 
+    2px 0 2px #ddd,
+    0 -2px 2px #ddd,
+    0 2px 2px #ddd;
+    background-color: #fff;
+    transition:all 0.5s linear;
+    -webkit-transition:all 0.5s linear;
+    -moz-transition:all 0.5s linear;
+}
+
+.mt-show{
+    opacity: 1;
+    bottom: 10px;
+}
+
+.m-cent{
+    margin-top: 5px;
+    height: 60px;
+    line-height: 50px;
+    position: relative;
+}
+
+.icon-music{
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url(../images/v2.png) no-repeat; 
+    background-size: 30px 30px;
+    cursor: pointer;
+}
+
+.m-cent .icon-nomusic{
+    background: url(../images/v20.png) no-repeat; 
+    background-size: 30px 30px;
+}
+
+.m-msg{
+    position: absolute;
+    left: 40px;
+    top: 15px;
+    height: 30px;
+    color: #068814;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.m-close{
+    position: absolute;
+    display: block;
+    width: 16px;
+    height: 16px;
+    right: 5px;
+    top:5px;
+    background: url(../images/icon_close.png) no-repeat;
+    background-size: 16px 16px;
+    cursor: pointer;
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+
+.m-close:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+}
+
+.musicTips .btns{
+    height: 30px;
+    text-align: center;
+}
+
+.musicTips .btns a.btn{
+    width: 60px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 25px;
+}
+
+.musicTips .btns a.grey{
+    border: 1px solid #ddd;
+    background-color: #efefef;
+}

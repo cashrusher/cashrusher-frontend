@@ -1,0 +1,51 @@
+{
+"mainland": {
+  "tickers": [
+    {
+      "platform": "okcoin",
+      "currency": "cny",
+      "buy": 22504.23,
+      "sell": 22521.22
+    },
+    {
+      "platform": "yunbi",
+      "currency": "cny",
+      "buy": 22201.32,
+      "sell": 22543.22
+    }
+  ],
+  "calculate": {
+    "maxsell": 22543.22,
+    "minbuy": 22201.32,
+    "maxsellminbuyratio":1.023
+  }
+},
+"abroad": {
+  "tickers": [
+    {
+      "platform": "kraken",
+      "currency": "cny",
+      "buy": 22201.32,
+      "sell": 22543.22
+    },{
+       "platform": "bitfinex",
+       "currency": "cny",
+       "buy": 20001.32,
+       "sell": 19943.22
+    }
+  ],
+  "calculate": [
+    {
+      "platform":"kraken",
+      "sellratio": 0.021,
+      "buyratio": 0.012
+    },
+    {
+      "platform":"bitfinex",
+      "sellratio": 0.13,
+      "buyratio": 0.24
+    }
+  ]
+},
+"cnyusdratio":6.45
+}
